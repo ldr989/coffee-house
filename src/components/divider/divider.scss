@@ -1,0 +1,44 @@
+.divider {
+    width: 200px;
+    height: 29.3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 auto;
+    position: relative;
+    img {
+        // position: absolute;
+        // top: 2px;
+        display: flex;
+        min-width: 29.3px;
+        max-height: 29.3px;
+        // margin: 0 25px;
+    }
+    hr {
+        margin: 0;
+        position: relative;
+        width: 1px;
+        height: 60px;
+        border: none;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+        transform: rotate(90deg);
+
+        &::before {
+            content: "";
+            position: absolute;
+            border: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff;
+        }
+    }
+}
+.divider-black {
+    hr {
+        &::before {
+            background-color: #000000;
+        }
+    }
+}
