@@ -1,0 +1,15 @@
+.our-best {
+    padding: 80px 320px 110px 320px;
+    width: 800px;
+    height: 305px;
+    background: linear-gradient(
+            rgba(255, 255, 255, 0.5),
+            rgba(255, 255, 255, 0.5)
+        ),
+        url(../../assets/images/paper.jfif) center/cover;
+    .wrapper {
+        margin-top: 39px;
+        display: flex;
+        justify-content: space-between;
+    }
+}

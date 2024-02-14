@@ -1,7 +1,18 @@
 .about-block {
+    height: 100%;
+    .divider {
+        margin-top: 20px;
+    }
     .about-block-text {
+        margin-top: 25px;
         width: 590px;
         height: 225px;
+        font-family: "Merienda";
+        font-style: normal;
+        font-size: 14px;
+        line-height: 20px;
         text-align: center;
+
+        color: #000000;
     }
 }
