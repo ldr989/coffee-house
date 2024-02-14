@@ -1,10 +1,13 @@
+import blackBeam from "../../assets/icons/beams-black.svg";
+import whiteBeam from "../../assets/icons/white-beams-divider.svg";
 import "./divider.scss";
 
-const Divider = ({ img, black }) => {
+const Divider = ({ isBlack }) => {
     let clazz = "divider";
-
-    if (black) {
+    let img = whiteBeam;
+    if (isBlack) {
         clazz += " divider-black";
+        img = blackBeam;
     }
     return (
         <div className={clazz}>
