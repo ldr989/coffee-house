@@ -3,7 +3,12 @@
     width: 1440px;
     min-height: 340px;
     background: #ffffff;
-    .about-block-text {
-        margin-top: 40px;
+    .about-us-wrapper {
+        width: 590px;
+        height: 225px;
+        margin: 0 auto;
+        .about-block-text {
+            margin-top: 40px;
+        }
     }
 }

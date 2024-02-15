@@ -1,0 +1,42 @@
+.info-block {
+    min-height: 455px;
+    margin: 0 auto;
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &-line {
+        display: block;
+        width: 240px;
+        height: 1px;
+        position: relative;
+        margin: 0 auto;
+        &::before {
+            content: "";
+            position: absolute;
+            border: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+        }
+    }
+    &-wrapper {
+        display: flex;
+        justify-content: center;
+        .info-block-img {
+            margin-right: 55px;
+            height: 355px;
+            max-width: 392px;
+            display: flex;
+            justify-content: center;
+            img {
+                height: 100%;
+            }
+        }
+        .info-block-descr {
+            width: 346px;
+        }
+    }
+}

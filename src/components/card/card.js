@@ -1,9 +1,13 @@
 import "./card.scss";
 
-const Card = (prop) => {
+const Card = (prop, { isShop }) => {
     const { name, img, price, country } = prop.product;
+    let clazz = "card";
+    if (isShop) {
+        clazz += " card-in-shop";
+    }
     return (
-        <div className="card">
+        <div className={clazz}>
             <div className="card-image">
                 <img src={img} alt="coffee brand" />
             </div>

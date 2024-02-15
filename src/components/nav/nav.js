@@ -3,7 +3,7 @@ import "./nav.scss";
 import whiteImg from "../../assets/icons/white-beams.svg";
 import blackImg from "../../assets/icons/beams.svg";
 
-const Nav = ({ isBlack }) => {
+const Nav = ({ isBlack, onChange }) => {
     let clazz = "";
     let image = whiteImg;
 
@@ -12,16 +12,27 @@ const Nav = ({ isBlack }) => {
         image = blackImg;
     }
 
+    const createOnClickHandler = (text) => {
+        return (e) => {
+            e.preventDefault();
+            onChange(text);
+        };
+    };
+
     return (
         <nav className={clazz}>
-            <a href="#">
+            <a href="#" onClick={createOnClickHandler("main")}>
                 <div className="logo">
                     <img src={image} alt="logo" />
                     Coffee house
                 </div>
             </a>
-            <a href="#">Our coffee</a>
-            <a href="#">For your pleasure</a>
+            <a href="#" onClick={createOnClickHandler("ourCoffee")}>
+                Our coffee
+            </a>
+            <a href="#" onClick={createOnClickHandler("forYourPleasure")}>
+                For your pleasure
+            </a>
         </nav>
     );
 };

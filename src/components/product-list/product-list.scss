@@ -1,0 +1,12 @@
+.product-list {
+    &-wrapper {
+        width: 800px;
+    }
+    &-control-panel {
+        margin: 0 auto;
+        margin-top: 60px;
+        width: 693px;
+        display: flex;
+        justify-content: space-between;
+    }
+}

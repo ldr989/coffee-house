@@ -33,3 +33,19 @@ header {
         cursor: pointer;
     }
 }
+.header-small {
+    height: 260px;
+    h1 {
+        margin-top: 60px;
+    }
+}
+
+.ourCoffee {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url("../../assets/images/coffee-shop.jfif") center/cover;
+}
+.forYourPleasure {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        url("../../assets/images/cup-of-coffee-in-nature.jfif") center
+            center/cover;
+}
