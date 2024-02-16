@@ -1,13 +1,13 @@
 import "./card.scss";
 
-const Card = (prop, { isShop }) => {
-    const { name, img, price, country } = prop.product;
+const Card = ({ product, isShop, onChange, text }) => {
+    const { name, img, price, country } = product;
     let clazz = "card";
     if (isShop) {
         clazz += " card-in-shop";
     }
     return (
-        <div className={clazz}>
+        <div className={clazz} onClick={() => onChange(text)}>
             <div className="card-image">
                 <img src={img} alt="coffee brand" />
             </div>

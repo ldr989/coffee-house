@@ -44,7 +44,7 @@ const Header = ({ onChange, data }) => {
                         We makes every day full of energy and taste <br />
                         Want to try our beans?
                     </div>
-                    <button>More</button>
+                    <button onClick={() => onChange("ourCoffee")}>More</button>
                 </header>
             );
     }

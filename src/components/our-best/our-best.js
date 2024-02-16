@@ -5,7 +5,7 @@ import presto from "../../assets/images/presto-coffee-beans.jfif";
 import aromistico from "../../assets/images/aromistico-coffee-beans.jfif";
 import "./our-best.scss";
 
-const OurBest = () => {
+const OurBest = ({ onChange }) => {
     const bestProducts = [
         {
             name: "Solimo Coffee Beans 2 kg",
@@ -29,10 +29,25 @@ const OurBest = () => {
     return (
         <section className="our-best">
             <H2Header text={"Our best"} />
-            <div className="wrapper">
-                <Card product={bestProducts[0]} />
-                <Card product={bestProducts[1]} />
-                <Card product={bestProducts[2]} />
+            <div className="our-best-wrapper">
+                <Card
+                    product={bestProducts[0]}
+                    isShop={false}
+                    onChange={onChange}
+                    text={"ourCoffeeCard"}
+                />
+                <Card
+                    product={bestProducts[1]}
+                    isShop={false}
+                    onChange={onChange}
+                    text={"ourCoffeeCard"}
+                />
+                <Card
+                    product={bestProducts[2]}
+                    isShop={false}
+                    onChange={onChange}
+                    text={"ourCoffeeCard"}
+                />
             </div>
         </section>
     );

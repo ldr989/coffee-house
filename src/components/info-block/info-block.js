@@ -1,7 +1,7 @@
 import AboutBlock from "../about-block/about-block";
 import "./info-block.scss";
 
-const InfoBlock = ({ h2, text, img, alt, line = false }) => {
+const InfoBlock = ({ h2, text, img, alt, line = false, isBrand = false }) => {
     return (
         <section className="info-block">
             <div className="info-block-wrapper">
@@ -9,7 +9,7 @@ const InfoBlock = ({ h2, text, img, alt, line = false }) => {
                     <img src={img} alt={alt} />
                 </div>
                 <div className="info-block-descr">
-                    <AboutBlock h2={h2} text={text} />
+                    <AboutBlock h2={h2} text={text} isBrand={isBrand} />
                 </div>
             </div>
             {line ? <span className="info-block-line"></span> : null}
