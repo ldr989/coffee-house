@@ -32,5 +32,8 @@
             color: #000000;
             cursor: pointer;
         }
+        .btn-active {
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.8);
+        }
     }
 }

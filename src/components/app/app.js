@@ -89,6 +89,8 @@ class App extends Component {
                     key: 3,
                 },
             ],
+            term: "",
+            filter: "all",
         };
     }
 
@@ -100,15 +102,49 @@ class App extends Component {
         });
     };
 
+    onUpdateSearch = (term) => {
+        this.setState({ term });
+    };
+
+    searchEmp = (items, term) => {
+        if (term.length === 0) {
+            return items;
+        }
+
+        return items.filter((item) => {
+            return item.name.toLowerCase().indexOf(term) > -1; // indexOf ищет сабстроку(term) в строке item.name если находит то выдает позицию, но нам нужно только булиновое значение, поэтому тут стоит оператор >. Если term найдется в строке то вернется его позиция а значит оно будет больше чем -1 и вернется true - выполнится условие фильтера и он вернет новый массив (terms) с найденным элементов внутри(item). Если term не найдется в строке то вернется -1 а значит false, фильтр перейдет к другому item
+        });
+    };
+
+    onFilterSelect = (filter) => {
+        if (this.state.filter === filter) {
+            this.setState({ filter: "all" });
+        } else {
+            this.setState({ filter });
+        }
+    };
+
+    filterPost = (items, filter) => {
+        switch (filter) {
+            case "Brazil":
+                return items.filter((item) => item.country === "Brazil"); // тут внутри скобок сокращенная запись которая заменяет конструкцию if else. если значение item.rise === true то возвращается этот item
+            case "Kenya":
+                return items.filter((item) => item.country === "Kenya");
+            case "Columbia":
+                return items.filter((item) => item.country === "Columbia");
+            default:
+                return items;
+        }
+    };
+
     render() {
-        switch (this.state.show) {
+        const { show, data, term, filter } = this.state;
+        const visibleData = this.filterPost(this.searchEmp(data, term), filter);
+        switch (show) {
             case "ourCoffee":
                 return (
                     <div className="app">
-                        <Header
-                            onChange={this.onChange}
-                            data={this.state.show}
-                        />
+                        <Header onChange={this.onChange} data={show} />
                         <InfoBlock
                             h2={"About our beans"}
                             text={
@@ -134,9 +170,12 @@ class App extends Component {
                             line={true}
                         />
                         <ProductList
-                            data={this.state.data}
+                            data={visibleData}
                             onChange={this.onChange}
                             text={"ourCoffeeCard"}
+                            onUpdateSearch={this.onUpdateSearch}
+                            filter={filter}
+                            onFilterSelect={this.onFilterSelect}
                         />
                         <Footer onChange={this.onChange} />
                     </div>
@@ -144,10 +183,7 @@ class App extends Component {
             case "forYourPleasure":
                 return (
                     <div className="app">
-                        <Header
-                            onChange={this.onChange}
-                            data={this.state.show}
-                        />
+                        <Header onChange={this.onChange} data={show} />
                         <InfoBlock
                             h2={"About our goods"}
                             text={
@@ -173,23 +209,19 @@ class App extends Component {
                             line={true}
                         />
                         <AppGetProductList
-                            data={this.state.data}
+                            data={visibleData}
                             onChange={this.onChange}
                             text={"forYourPleasureCard"}
+                            filter={filter}
+                            onFilterSelect={this.onFilterSelect}
                         />
-                        <Footer
-                            onChange={this.onChange}
-                            data={this.state.show}
-                        />
+                        <Footer onChange={this.onChange} data={show} />
                     </div>
                 );
             case "ourCoffeeCard":
                 return (
                     <div className="app">
-                        <Header
-                            onChange={this.onChange}
-                            data={this.state.show}
-                        />
+                        <Header onChange={this.onChange} data={show} />
                         <InfoBlock
                             h2={"About it"}
                             text={
@@ -219,10 +251,7 @@ class App extends Component {
             case "forYourPleasureCard":
                 return (
                     <div className="app">
-                        <Header
-                            onChange={this.onChange}
-                            data={this.state.show}
-                        />
+                        <Header onChange={this.onChange} data={show} />
                         <InfoBlock
                             h2={"About it"}
                             text={
@@ -252,10 +281,7 @@ class App extends Component {
             default:
                 return (
                     <div className="app">
-                        <Header
-                            onChange={this.onChange}
-                            data={this.state.show}
-                        />
+                        <Header onChange={this.onChange} data={show} />
                         <AboutUs onChange={this.onChange} />
                         <OurBest onChange={this.onChange} />
                         <Footer onChange={this.onChange} />
